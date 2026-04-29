@@ -68,13 +68,13 @@ export const bookingsApi = {
   update: (id, data) => api.patch('/bookings/' + id + '/', data),
   updateStatus: (id, status) => api.patch('/bookings/' + id + '/update_status/', { status }),
   delete: (id) => api.delete('/bookings/' + id + '/'),
-  exportCSV: (filter) => api.get('/bookings/export_csv/', { params: { filter }, responseType: 'blob' }),
-  stats: (filter) => api.get('/bookings/stats/', { params: { filter } }),
+  exportCSV: (filter: any) => api.get('/bookings/export_csv/', { params: { filter }, responseType: 'blob' }),
+  stats: (filter: any) => api.get('/bookings/stats/', { params: { filter } }),
 };
 
 export const inventoryApi = {
   listItems: () => api.get('/inventory/items/'),
-  getItem: (id) => api.get('/inventory/items/' + id + '/'),
+  getItem: (id: any) => api.get('/inventory/items/' + id + '/'),
   createItem: (data) => api.post('/inventory/items/', data),
   updateItem: (id, data) => api.patch('/inventory/items/' + id + '/', data),
   deleteItem: (id) => api.delete('/inventory/items/' + id + '/'),
@@ -82,13 +82,13 @@ export const inventoryApi = {
   listRoomItems: (params) => api.get('/inventory/room-items/', { params }),
   createRoomItem: (data) => api.post('/inventory/room-items/', data),
   updateRoomItem: (id, data) => api.patch('/inventory/room-items/' + id + '/', data),
-  deleteRoomItem: (id) => api.delete('/inventory/room-items/' + id + '/'),
+  deleteRoomItem: (id: any) => api.delete('/inventory/room-items/' + id + '/'),
 };
 
 export const notificationsApi = {
   list: () => api.get('/notifications/'),
   unreadCount: () => api.get('/notifications/unread_count/'),
-  markRead: (id) => api.patch('/notifications/' + id + '/mark_read/'),
+  markRead: (id: any) => api.patch('/notifications/' + id + '/mark_read/'),
   markAllRead: () => api.post('/notifications/mark_all_read/'),
 };
 
