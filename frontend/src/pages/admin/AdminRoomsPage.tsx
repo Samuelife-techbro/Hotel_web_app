@@ -142,7 +142,7 @@ export default function AdminRoomsPage() {
   const fetchRooms = useCallback(async () => {
     setLoading(true);
     try {
-      const res = await roomsApi.list();
+      const res = await roomsApi.list({});
       setRooms(res.data.results || res.data);
     } catch { setRooms([]); }
     setLoading(false);

@@ -150,7 +150,7 @@ export default function AdminReportsPage() {
                     ))}
                   </Pie>
                   <Tooltip contentStyle={{ fontFamily: 'DM Sans', fontSize: 12 }}
-                    formatter={(_: unknown, name: string) => [_, name.replace('_', ' ')]} />
+                    formatter={(value: any, name: string) => [value as React.ReactNode, name.replace('_', ' ')]} />
                   <Legend formatter={(v: string) => v.replace('_', ' ')} />
                 </PieChart>
               </ResponsiveContainer>
