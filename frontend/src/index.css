@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-charcoal-950 bg-stone-50;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  /* Primary action button — dark */
+  .btn-primary {
+    @apply bg-charcoal-950 hover:bg-charcoal-800 text-white font-sans font-medium
+           px-6 py-3 tracking-wide transition-colors duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Gold accent button */
+  .btn-gold {
+    @apply bg-gold-500 hover:bg-gold-400 text-charcoal-950 font-sans font-medium
+           px-6 py-3 tracking-wide transition-colors duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Outline button */
+  .btn-outline {
+    @apply border border-charcoal-950 text-charcoal-950 font-sans font-medium
+           px-6 py-3 tracking-wide hover:bg-charcoal-950 hover:text-white
+           transition-colors duration-200;
+  }
+
+  /* Text input / select */
+  .input-field {
+    @apply w-full px-4 py-3 border border-stone-200 bg-white text-charcoal-900
+           font-sans text-sm focus:outline-none focus:border-charcoal-950
+           transition-colors duration-200 placeholder:text-charcoal-400;
+  }
+
+  /* Card container */
+  .card {
+    @apply bg-white border border-stone-100 shadow-sm;
+  }
+
+  /* Status badge base */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 text-xs font-sans font-medium;
+  }
+
+  /* Booking status badge variants */
+  .badge-pending     { @apply badge bg-amber-50  text-amber-700  border border-amber-200; }
+  .badge-confirmed   { @apply badge bg-blue-50   text-blue-700   border border-blue-200; }
+  .badge-checked_in  { @apply badge bg-emerald-50 text-emerald-700 border border-emerald-200; }
+  .badge-checked_out { @apply badge bg-stone-50  text-stone-600  border border-stone-200; }
+  .badge-cancelled   { @apply badge bg-red-50    text-red-700    border border-red-200; }
+
+  /* Skeleton loading shimmer */
+  .skeleton {
+    @apply bg-stone-200 animate-pulse;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #d1d1d1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #a0a0a0; }
+
+/* Notification pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.2); opacity: 0.7; }
+}
+.pulse-dot { animation: pulse-dot 1.5s ease-in-out infinite; }
