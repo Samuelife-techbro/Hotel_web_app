@@ -19,7 +19,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-hotel-booking-secret-
 
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "hotel-web-app-9keh.onrender.com",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -130,9 +134,7 @@ SIMPLE_JWT = {
 
 # CORS
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    "http://localhost:3000",
-    "http://127.0.0.1:5173",
+    "https://hotel-web-app-sigma.vercel.app",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
